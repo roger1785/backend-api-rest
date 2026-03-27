@@ -14,12 +14,13 @@ export const addToCart = async (req, res) => {
       products: [],
     });
   }
-  const productExists = cart.products.find((p) => p.product == product.Id);
+  const productExists = cart.products.find((p) => p.product == product);
 
   if (productExists) {
+    // productExists.quantity += quantity;
   } else {
     const newProduct = {
-      product: productId,
+      product: product,
       quantity: quantity,
     };
     cart.products.push(newProduct);
@@ -30,7 +31,7 @@ export const addToCart = async (req, res) => {
 
   // console.log(productExists);
 
-  res.json({ user: req.user, body: req.body });
+  // res.json({ user: req.user, body: req.body });
 };
 //   try {
 //     console.log(req.body, req.user);
