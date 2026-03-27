@@ -14,7 +14,7 @@ Verifica que la API está funcionando.
 
 ```json
 {
-  "message": "pong"
+  "message": "pong" 
 }
 ```
 
