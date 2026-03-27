@@ -11,23 +11,34 @@ export const addToCart = async (req, res) => {
   if (!cart) {
     cart = new Cart({
       user: userId,
-      products: [],
     });
   }
   const productExists = cart.products.find((p) => p.product == product);
 
+  // console.log(productExists);
+
   if (productExists) {
-    // productExists.quantity += quantity;
+    // const cantidadActual = productExists.quantity;
+    // const nuevaCantidad = cantidadActual + quantity;
+    // productExists.quantity = nuevaCantidad;
+
+    productExists.quantity += quantity;
   } else {
     const newProduct = {
       product: product,
       quantity: quantity,
     };
     cart.products.push(newProduct);
+    
   }
 
+  // console.log(productExists);
+
+  // return res.json(cart);
+
   await cart.save();
-  res.status(201).json({ message: "Carrito agregado al carrito" });
+
+  res.status(201).json({ message: "Producto agregado al carrito" });
 
   // console.log(productExists);
 

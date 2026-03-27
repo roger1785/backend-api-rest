@@ -8,6 +8,7 @@ import cors from "cors";
 import productsRouter from "./routes/products.router.js";
 import categoriesRouter from "./routes/categories.router.js";
 import authRouter from "./routes/auth.router.js";
+import cartRouter from "./routes/cart.router.js";
 import pingRouter from "./routes/ping.router.js";
 // import { authMiddleware } from "./middlewares/auth.middleware.js";
 
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use("/products", productsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/auth", authRouter);
+app.use("/cart", cartRouter);
 app.use(pingRouter);
 
 export default app;
